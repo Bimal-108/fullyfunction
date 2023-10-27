@@ -16,7 +16,7 @@
             @foreach($products as $product)
                 <tr>
                     <td>{{$loop->index + 1}}</td>
-                    <td>{{$product->name}}</td>
+                    <td><a href="/products/{{$product->id}}/view" class="text-dark">{{$product->name}}</a></td>
                     <td>
                         <img src="/products/{{$product->image}}" class="rounded-circle" width="50" height="50">
                     </td>
@@ -31,8 +31,10 @@
                     </td>
                 </tr>
             </tbody>
+{{--            layout desgine bigriyeo vane provider ko folder gayera AppService bhitra euta add garnnu parxa--}}
             @endforeach
         </table>
+        {{$products->links()}}
     </div>
 </x-app>
 

@@ -15,7 +15,7 @@ class ProductController extends Controller
 
 //        or another way
 
-        return view('products.index',['products' => Product::get()]);
+        return view('products.index',['products' => Product::latest()->paginate(5)]);
     }
 
     public function create(){
@@ -70,5 +70,9 @@ class ProductController extends Controller
         $product = Product::where('id', $id)->first();
         $product->delete();
         return back()->withSuccess('Product Deleted Successfully');
+    }
+    public function view($id){
+        $product = Product::where('id', $id)->first();
+        return view('products.show',compact('product'));
     }
 }
