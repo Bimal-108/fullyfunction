@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ProductController::class, 'index'])->name('main.route');
 Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('/products/store', [ProductController::class, 'store'])->name('product.store');
+Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
+Route::put('/products/{id}/update',[ProductController::class, 'update'])->name('product.update');
+Route::delete('/products/{id}/delete',[ProductController::class, 'destroy'])->name('product.destroy');
+
